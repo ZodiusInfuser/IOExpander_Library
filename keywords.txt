@@ -1,0 +1,48 @@
+#######################################
+# Syntax Coloring Map IOExpander
+#######################################
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+IOExpander		KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+initialise		KEYWORD2
+getChipId		KEYWORD2
+setAddr			KEYWORD2
+getAdcVref		KEYWORD2
+setAdcVref		KEYWORD2
+enableInterruptOut	KEYWORD2
+disableInterruptOut	KEYWORD2
+getInterruptFlag	KEYWORD2
+clearInterruptFlag	KEYWORD2
+setPinInterrupt		KEYWORD2
+setInterruptCallback	KEYWORD2
+pwmLoad			KEYWORD2
+pwmLoading		KEYWORD2
+pwmClear		KEYWORD2
+pwmClearing		KEYWORD2
+setPwmControl		KEYWORD2
+setPwmPeriod		KEYWORD2
+getMode			KEYWORD2
+setMode			KEYWORD2
+input			KEYWORD2
+inputAsVoltage		KEYWORD2
+output			KEYWORD2
+setupRotaryEncoder	KEYWORD2
+readRotaryEncoder	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+CHIP_ID			LITERAL1
+CHIP_VERSION		LITERAL1
+PIN_IN			LITERAL1
+PIN_IN_PULL_UP		LITERAL1
+PIN_IN_PU		LITERAL1
+PIN_OUT			LITERAL1
+PIN_PWM			LITERAL1
+PIN_ADC			LITERAL1
+NUM_PINS		LITERAL1

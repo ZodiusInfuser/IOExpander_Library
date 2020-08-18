@@ -1,0 +1,14 @@
+{
+  "name": "IOExpander Library",
+  "keywords": "Arduino, Teensy, Raspberry Pi, HAT",
+  "description": "Arduino library for the Pimoroni IOExpander breakout.",
+  "url": "https://github.com/ZodiusInfuser/IOExpander_Library",
+  "include": "IOExpander Library",
+  "authors":
+  [
+    {
+      "name": "Christopher Parrott"
+    }
+  ],
+  "frameworks": "arduino"
+}
