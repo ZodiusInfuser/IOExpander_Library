@@ -175,7 +175,7 @@ IOExpander::IOExpander(TwoWire& wire, uint8_t address, uint32_t timeout,
 , _interruptPin(interruptPin)
 , _encoderOffset{0,0,0,0}
 , _encoderLast{0,0,0,0}
-, _pins{Pin::Pwm(1, 5, 5, REG_PIOCON1),            
+, _pins{Pin::Pwm(1, 5, 5, REG_PIOCON1),
         Pin::Pwm(1, 0, 2, REG_PIOCON0),
         Pin::Pwm(1, 2, 0, REG_PIOCON0),
         Pin::Pwm(1, 4, 1, REG_PIOCON1),
@@ -501,7 +501,7 @@ void IOExpander::setMode(uint8_t pin, uint8_t mode, bool schmittTrigger, bool in
     Serial.print(" ");
     Serial.print(GPIO_NAMES[gpioMode]);
     Serial.print(", state: ");
-    Serial.print(STATE_NAMES[initialState]);
+    Serial.println(STATE_NAMES[initialState]);
   }
 
   if(mode == PIN_MODE_PWM)
@@ -690,7 +690,7 @@ void IOExpander::output(uint8_t pin, uint16_t value, bool load)
     if(_debug)
     {
       Serial.print("Outputting PWM to pin: ");
-      Serial.println("pin");
+      Serial.println(pin);
     }
 
     i2cWrite8(ioPin._reg_pwml, (uint8_t)(value & 0xff));
