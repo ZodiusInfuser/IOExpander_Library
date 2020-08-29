@@ -819,7 +819,7 @@ void IOExpander::setBits(uint8_t reg, uint8_t bits)
   if(!regInBitAddressedRegs)
   {
     uint8_t value = i2cRead8(reg);
-    delay(1);
+    delayMicroseconds(10);
     i2cWrite8(reg, value | bits);
   }
 }
@@ -856,7 +856,7 @@ void IOExpander::clrBits(uint8_t reg, uint8_t bits)
   if(!regInBitAddressedRegs)
   {
     uint8_t value = i2cRead8(reg);
-    delay(1);
+    delayMicroseconds(10);
     i2cWrite8(reg, value & ~bits);
   }
 }
