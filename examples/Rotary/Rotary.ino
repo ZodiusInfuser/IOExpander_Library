@@ -64,7 +64,7 @@ void setup()
       delay(10);
   }
 
-  ioe.enableInterruptOut();
+  ioe.enableInterruptOut(true);
   #ifdef USE_INTERRUPT_ROUTINE
     ioe.setInterruptCallback(interruptRoutine);
   #endif
