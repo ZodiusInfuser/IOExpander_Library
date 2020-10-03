@@ -6,6 +6,7 @@
 #######################################
 IOExpander		KEYWORD1
 PotBreakout		KEYWORD1
+EncBreakout		KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
