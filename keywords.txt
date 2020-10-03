@@ -5,6 +5,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 IOExpander		KEYWORD1
+PotBreakout		KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -33,6 +34,10 @@ inputAsVoltage		KEYWORD2
 output			KEYWORD2
 setupRotaryEncoder	KEYWORD2
 readRotaryEncoder	KEYWORD2
+getDirection	KEYWORD2
+setDirection	KEYWORD2
+setRGB			KEYWORD2
+readAsPercent	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
