@@ -1,5 +1,5 @@
 /*
- * IOExpander rotary example (updated August 18, 2020)
+ * IOExpander rotary example (updated October 3, 2020)
  * 
  * Ported from https://github.com/pimoroni/ioe-python/blob/master/examples/rotary.py
  * by Christopher (@ZodiusInfuser) Parrott
