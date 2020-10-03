@@ -30,7 +30,7 @@ static const bool INVERT_OUTPUT = true; //true for common cathode, false for com
 
 /***** Global Variables *****/
 IOExpander ioe(Wire, 0x18, 1, 4);
-uint16_t count = 0;
+int16_t count = 0;
 
 #ifdef USE_INTERRUPT_ROUTINE
   volatile bool intHandled = false;
@@ -105,6 +105,9 @@ void loop()
     }
   #endif   
   
+  while(count < 0)
+    count += 360;
+
   float h = (float)(count % 360);
   byte r, g, b;
   HSVtoRGB(h, 100.0f, 100.0f, r, g, b);

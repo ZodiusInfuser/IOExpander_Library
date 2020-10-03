@@ -740,16 +740,20 @@ void IOExpander::setupRotaryEncoder(uint8_t channel, uint8_t pinA, uint8_t pinB,
   i2cWrite8(ENC_CFG[channel], pinA | (pinB << 4));
   changeBit(REG_ENC_EN, (channel * 2) + 1, countMicrosteps);
   setBit(REG_ENC_EN, channel * 2);
+  
+  //Reset internal encoder count to zero
+  uint8_t reg = ENC_COUNT[channel];
+  i2cWrite8(reg, 0x00);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-uint16_t IOExpander::readRotaryEncoder(uint8_t channel)
+int16_t IOExpander::readRotaryEncoder(uint8_t channel)
 {
   //Read the step count from a rotary encoder."""
   channel -= 1;
-  uint8_t last = _encoderLast[channel];
+  int16_t last = _encoderLast[channel];
   uint8_t reg = ENC_COUNT[channel];
-  uint8_t value = i2cRead8(reg);
+  int16_t value = (int16_t)i2cRead8(reg);
 
   if(value & 0b10000000)
     value -= 256;

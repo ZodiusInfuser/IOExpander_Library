@@ -407,7 +407,7 @@ public:
   //--------------------------------------------------
   
   void setupRotaryEncoder(uint8_t channel, uint8_t pinA, uint8_t pinB, uint8_t pinC = 0, bool countMicrosteps = false);
-  uint16_t readRotaryEncoder(uint8_t channel);
+  int16_t readRotaryEncoder(uint8_t channel);
 
   //--------------------------------------------------
 private:
@@ -434,8 +434,8 @@ private:
   float _vref;
   uint32_t _timeout;
   uint8_t _interruptPin;
-  uint8_t _encoderOffset[4];
-  uint8_t _encoderLast[4];
+  int16_t _encoderOffset[4];
+  int16_t _encoderLast[4];
 
   Pin _pins[NUM_PINS];
 };
