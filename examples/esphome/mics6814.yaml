@@ -1,0 +1,25 @@
+esphome:
+  includes:
+    - mics6814.h
+  libraries:
+    - Wire
+    - https://github.com/ZodiusInfuser/IOExpander_Library.git
+
+# Example configuration entry
+sensor:
+- platform: custom
+  lambda: |-
+    auto my_sensor = new mics6814();
+    App.register_component(my_sensor);
+    return {my_sensor->red_sensor, my_sensor->nh3_sensor, my_sensor->ox_sensor };
+
+  sensors:
+  - name: "Red Sensor"
+    unit_of_measurement: Ohm
+    accuracy_decimals: 0
+  - name: "NH3 Sensor"
+    unit_of_measurement: Ohm
+    accuracy_decimals: 0
+  - name: "Ox Sensor"
+    unit_of_measurement: Ohm
+    accuracy_decimals: 0
