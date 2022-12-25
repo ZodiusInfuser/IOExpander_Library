@@ -68,6 +68,14 @@ void GasBreakout::setRGB(uint8_t r, uint8_t g, uint8_t b)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+void GasBreakout::setHeater(bool value)
+{
+  uint16_t state = (value)?LOW:HIGH;
+
+  _ioe.output(PIN_HEATER_EN, state);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 float GasBreakout::readGas(byte channel, uint32_t adcTimeout)
 {
   float vref = _ioe.getAdcVref();

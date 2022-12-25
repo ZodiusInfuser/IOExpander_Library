@@ -71,6 +71,7 @@ public:
   
   void setBrightness(float brightness);
   void setRGB(uint8_t r, uint8_t g, uint8_t b);
+  void setHeater(bool value);
 
   Reading readAll(uint32_t adcTimeout = DEFAULT_ADC_TIMEOUT);
   float readReducing(uint32_t adcTimeout = DEFAULT_ADC_TIMEOUT);
