@@ -23,3 +23,37 @@ sensor:
   - name: "Ox Sensor"
     unit_of_measurement: Ohm
     accuracy_decimals: 0
+
+switch:
+- platform: custom
+  lambda: |-
+    auto heater_switch = new HeaterSwitch();
+    App.register_component(heater_switch);
+    return {heater_switch};
+
+  switches:
+    name: "Heater Enable"
+
+light:
+  - platform: rgb
+    name: "Gas Light"
+    red: output_red
+    green: output_green
+    blue: output_blue
+
+output:
+- platform: custom
+  type: float
+  lambda: |-
+    auto custom_red = new LedChannel('R');
+    auto custom_green = new LedChannel('G');
+    auto custom_blue = new LedChannel('B');
+    App.register_component(custom_red);
+    App.register_component(custom_green);
+    App.register_component(custom_blue);
+    return {custom_red, custom_green, custom_blue};
+
+  outputs:
+  - id: output_red
+  - id: output_green
+  - id: output_blue
