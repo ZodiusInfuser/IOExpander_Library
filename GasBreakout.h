@@ -64,13 +64,16 @@ public:
   //Calls through to IOExpander class
   //--------------------------------------------------
   void setAddr(uint8_t i2cAddr);
-  
+  void setPwmPeriod(uint16_t value, bool load = true);
   //--------------------------------------------------
   //MIC6814 Gas Breakout specific
   //--------------------------------------------------
   
   void setBrightness(float brightness);
   void setRGB(uint8_t r, uint8_t g, uint8_t b);
+  void setR(uint8_t r);
+  void setG(uint8_t g);
+  void setB(uint8_t b);
   void setHeater(bool value);
 
   Reading readAll(uint32_t adcTimeout = DEFAULT_ADC_TIMEOUT);
@@ -80,12 +83,14 @@ public:
   float readRef(uint32_t adcTimeout = DEFAULT_ADC_TIMEOUT);
 private:
   float readGas(byte channel, uint32_t adcTimeout = DEFAULT_ADC_TIMEOUT);
+  void setSingle(uint8_t pin, uint8_t  v);
   //--------------------------------------------------
   // Variables
   //--------------------------------------------------
 private:
   IOExpander _ioe;
   float _brightness;
+  unsigned int _pwm_period;
 };
 #endif
 ////////////////////////////////////////////////////////////////////////////////////////////////////

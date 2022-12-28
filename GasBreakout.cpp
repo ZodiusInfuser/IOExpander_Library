@@ -30,7 +30,7 @@ bool GasBreakout::initialise(bool skipChipIdCheck)
     //Calculate a period large enough to get 0-255 steps at the desired brightness
     unsigned int period = (unsigned int)(255.0f / _brightness);
   
-    _ioe.setPwmPeriod(period);
+    setPwmPeriod(period);
     _ioe.setPwmControl(2);  //PWM as fast as we can to avoid LED flicker
 
     _ioe.setMode(PIN_RED, IOExpander::PIN_PWM, false, INVERT_OUTPUT);
@@ -47,6 +47,12 @@ void GasBreakout::setAddr(uint8_t i2cAddr)
 {
   _ioe.setAddr(i2cAddr);
 }
+
+void GasBreakout::setPwmPeriod(uint16_t value, bool load)
+{
+  _pwm_period = value;
+  _ioe.setPwmPeriod(_pwm_period, load);
+}
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void GasBreakout::setBrightness(float brightness)
@@ -56,7 +62,7 @@ void GasBreakout::setBrightness(float brightness)
   //Calculate a period large enough to get 0-255 steps at the desired brightness
   unsigned int period = (unsigned int)(255.0f / _brightness);
   
-  _ioe.setPwmPeriod(period);
+  setPwmPeriod(period);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,6 +73,26 @@ void GasBreakout::setRGB(uint8_t r, uint8_t g, uint8_t b)
   _ioe.output(PIN_BLUE, b);         //Loads all 3 pwms
 }
 
+void GasBreakout::setSingle(uint8_t pin, uint8_t  v)
+{
+  uint16_t value = (v * _pwm_period / 255.0f );
+  _ioe.output(pin, value);
+}
+
+void GasBreakout::setR(uint8_t r)
+{
+  setSingle(PIN_RED, r);
+}
+
+void GasBreakout::setG(uint8_t g)
+{
+  setSingle(PIN_GREEN, g);
+}
+
+void GasBreakout::setB(uint8_t b)
+{
+  setSingle(PIN_BLUE, b);
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void GasBreakout::setHeater(bool value)
 {
