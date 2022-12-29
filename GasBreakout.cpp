@@ -27,10 +27,8 @@ bool GasBreakout::initialise(bool skipChipIdCheck)
     _ioe.setMode(PIN_HEATER_EN, IOExpander::PIN_OUT);
     _ioe.output(PIN_HEATER_EN, LOW);
 
-    //Calculate a period large enough to get 0-255 steps at the desired brightness
-    unsigned int period = (unsigned int)(255.0f / _brightness);
-  
-    setPwmPeriod(period);
+    setBrightness(_brightness);
+
     _ioe.setPwmControl(2);  //PWM as fast as we can to avoid LED flicker
 
     _ioe.setMode(PIN_RED, IOExpander::PIN_PWM, false, INVERT_OUTPUT);
